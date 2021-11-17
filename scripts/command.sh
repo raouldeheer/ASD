@@ -1,3 +1,4 @@
+#!/bin/bash
 downloadAndRun() {
     echo "Starting $1"
     wget -O - -q --show-progress https://gist.githubusercontent.com/raouldeheer/$2/raw | bash
