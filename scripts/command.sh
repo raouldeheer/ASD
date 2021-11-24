@@ -11,11 +11,11 @@ then
     echo ""
     echo "ASD - Advanced Script Downloader"
     echo "Options: "
-    echo "docker"
-    echo "ufw"
-    echo "setup"
-    echo "update"
-    echo "asd-update"
+    echo "  docker"
+    echo "  ufw"
+    echo "  setup"
+    echo "  update"
+    echo "  asd-update"
 else
     for option in "$@"
     do
