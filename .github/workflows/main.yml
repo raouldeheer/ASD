@@ -6,7 +6,7 @@ on:
       tag:
         description: 'Release tag'     
         required: true
-        default: 'v0.0.0'
+        default: '0.0.0'
 
 jobs:
   build:
@@ -18,12 +18,11 @@ jobs:
         run: |
           cp scripts/command.sh asd.sh
           cp scripts/install.sh install.sh
-      - name: Test
-        run: ls
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: github.event.inputs.tags
+          tag_name: "v${{ github.event.inputs.tag }}"
+          name: "Version ${{ github.event.inputs.tag }}"
           generate_release_notes: true
           draft: true
           files: |
