@@ -5,43 +5,57 @@ downloadAndRun() {
     echo "Finished $1"
 }
 
+asdUpdate() {
+    wget -O - -q --show-progress https://github.com/raouldeheer/ASD/releases/latest/download/install.sh | bash
+}
+
+VERSION="0.0.4"
+
+declare -A commandCode
+declare -A commandName
+
+commandName[docker]="Docker setup"
+commandCode[docker]="979e472a38375e9dc9b1383039ce3127"
+
+commandName[ufw]="UFW setup"
+commandCode[ufw]="ebd8cb22fdeb3b899c5599551821859a"
+
+commandName[setup]="LXC setup"
+commandCode[setup]="699991ad6ad3284cb6908aa07d148561"
+
 if (( $# == 0 ))
 then
     echo "No input!"
     echo ""
     echo "ASD - Advanced Script Downloader"
     echo "Options: "
-    echo "  docker"
-    echo "  ufw"
-    echo "  setup"
-    echo "  update"
-    echo "  asd-update"
+    for key in "${!commandName[@]}"; do
+        echo "    $key    : ${commandName[$key]}"
+    done
 else
     for option in "$@"
     do
         case $option in
-            docker)
-                downloadAndRun "docker" "979e472a38375e9dc9b1383039ce3127"
-            ;;
-
-            ufw)
-                downloadAndRun "ufw" "ebd8cb22fdeb3b899c5599551821859a"
-            ;;
-
-            setup)
-                downloadAndRun "LXC setup" "699991ad6ad3284cb6908aa07d148561"
-            ;;
-
             update)
                 downloadAndRun "LXC update" "9bae094b585c92c9e69ac7647b08825a"
+                asdUpdate
             ;;
 
             asd-update)
-                wget -O - -q --show-progress https://github.com/raouldeheer/ASD/releases/latest/download/install.sh | bash
+                asdUpdate
+            ;;
+
+            version)
+                echo "ASD version: $VERSION"
             ;;
 
             *)
-                echo "unknown option"
+                if [ ${commandName[$option]+found} ]
+                then
+                    downloadAndRun "${commandName[$option]}" "${commandCode[$option]}"
+                else
+                    echo "Unknown option: $option"
+                fi
             ;;
         esac
     done
