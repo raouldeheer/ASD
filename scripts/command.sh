@@ -29,6 +29,8 @@ then
     echo ""
     echo "ASD - Advanced Script Downloader"
     echo "Options: "
+    echo "update    : update system"
+    echo "asd-update    : update asd"
     for key in "${!commandName[@]}"; do
         echo "    $key    : ${commandName[$key]}"
     done
