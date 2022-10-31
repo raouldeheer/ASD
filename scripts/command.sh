@@ -9,7 +9,7 @@ asdUpdate() {
     wget -O - -q --show-progress https://github.com/raouldeheer/ASD/releases/latest/download/install.sh | bash
 }
 
-VERSION="0.0.4"
+VERSION="0.0.5"
 
 declare -A commandCode
 declare -A commandName
@@ -22,6 +22,9 @@ commandCode[ufw]="ebd8cb22fdeb3b899c5599551821859a"
 
 commandName[setup]="LXC setup"
 commandCode[setup]="699991ad6ad3284cb6908aa07d148561"
+
+commandName[pm2]="NVM/PM2 setup"
+commandCode[pm2]="c8a07ec879286282eb5db11aced34897"
 
 if (( $# == 0 ))
 then
