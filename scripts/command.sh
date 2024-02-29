@@ -9,7 +9,7 @@ asdUpdate() {
     wget -O - -q --show-progress https://github.com/raouldeheer/ASD/releases/latest/download/install.sh | bash
 }
 
-VERSION="0.0.5"
+VERSION="0.0.6"
 
 declare -A commandCode
 declare -A commandName
@@ -26,16 +26,19 @@ commandCode[setup]="699991ad6ad3284cb6908aa07d148561"
 commandName[pm2]="NVM/PM2 setup"
 commandCode[pm2]="c8a07ec879286282eb5db11aced34897"
 
+commandName[aptcache]="Apt cache proxy setup"
+commandCode[aptcache]="0cbf1d954b8819538364f5a5ff6c890c"
+
 if (( $# == 0 ))
 then
     echo "No input!"
     echo ""
     echo "ASD - Advanced Script Downloader"
     echo "Options: "
-    echo "update    : update system"
-    echo "asd-update    : update asd"
+    echo "update\t: update system"
+    echo "asd-update\t: update asd"
     for key in "${!commandName[@]}"; do
-        echo "    $key    : ${commandName[$key]}"
+        echo "$key\t: ${commandName[$key]}"
     done
 else
     for option in "$@"
