@@ -9,7 +9,7 @@ asdUpdate() {
     wget -O - -q --show-progress https://github.com/raouldeheer/ASD/releases/latest/download/install.sh | bash
 }
 
-VERSION="0.0.6"
+VERSION="0.0.7"
 
 declare -A commandCode
 declare -A commandName
@@ -35,10 +35,10 @@ then
     echo ""
     echo "ASD - Advanced Script Downloader"
     echo "Options: "
-    echo "update\t: update system"
-    echo "asd-update\t: update asd"
+    echo "update: update system"
+    echo "asd-update: update asd"
     for key in "${!commandName[@]}"; do
-        echo "$key\t: ${commandName[$key]}"
+        echo "$key: ${commandName[$key]}"
     done
 else
     for option in "$@"
