@@ -29,6 +29,9 @@ commandCode[pm2]="c8a07ec879286282eb5db11aced34897"
 commandName[aptcache]="Apt cache proxy setup"
 commandCode[aptcache]="0cbf1d954b8819538364f5a5ff6c890c"
 
+commandName[snmp]="SNMP setup"
+commandCode[snmp]="b10cf1ee50acc967f05c22d89324162c"
+
 if (( $# == 0 ))
 then
     echo "No input!"
