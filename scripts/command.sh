@@ -9,7 +9,7 @@ asdUpdate() {
     wget -O - -q --show-progress https://github.com/raouldeheer/ASD/releases/latest/download/install.sh | bash
 }
 
-VERSION="0.0.7"
+VERSION="0.0.8"
 
 declare -A commandCode
 declare -A commandName
