@@ -9,7 +9,7 @@ asdUpdate() {
     wget -O - -q --show-progress https://github.com/raouldeheer/ASD/releases/latest/download/install.sh | bash
 }
 
-VERSION="0.0.8"
+VERSION="1.0.0"
 
 declare -A commandCode
 declare -A commandName
@@ -31,6 +31,9 @@ commandCode[aptcache]="0cbf1d954b8819538364f5a5ff6c890c"
 
 commandName[snmp]="SNMP setup"
 commandCode[snmp]="b10cf1ee50acc967f05c22d89324162c"
+
+commandName[apt]="APT repo setup"
+commandCode[apt]="632637ead6df2109976a10eaebdc1a50"
 
 if (( $# == 0 ))
 then
