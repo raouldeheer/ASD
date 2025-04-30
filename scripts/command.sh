@@ -35,6 +35,9 @@ commandCode[snmp]="b10cf1ee50acc967f05c22d89324162c"
 commandName[apt]="APT repo setup"
 commandCode[apt]="632637ead6df2109976a10eaebdc1a50"
 
+commandName[ca]="Smallstep CA setup"
+commandCode[ca]="97421a308b5797f6bee65be26c269d9e"
+
 if (( $# == 0 ))
 then
     echo "No input!"
