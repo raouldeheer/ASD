@@ -9,7 +9,7 @@ asdUpdate() {
     wget -O - -q --show-progress https://github.com/raouldeheer/ASD/releases/latest/download/install.sh | bash
 }
 
-VERSION="1.0.0"
+VERSION="1.0.2"
 
 declare -A commandCode
 declare -A commandName
@@ -37,6 +37,9 @@ commandCode[apt]="632637ead6df2109976a10eaebdc1a50"
 
 commandName[ca]="Smallstep CA setup"
 commandCode[ca]="97421a308b5797f6bee65be26c269d9e"
+
+commandName[clatd]="CLATD setup"
+commandCode[clatd]="6fe79307d3aaaf33cd01fdc3beb99536"
 
 if (( $# == 0 ))
 then
